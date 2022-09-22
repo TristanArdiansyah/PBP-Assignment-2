@@ -3,22 +3,110 @@
         "model": "mywatchlist.WatchList",
         "pk": 1,
         "fields": {
-            "watched": "No",
+            "watched": "Yes",
             "title": "Top Gun",
             "rating": "6.9/10.0",
             "release_date": "May 16, 1986",
-            "review": "https://www.rottentomatoes.com/m/top_gun"
+            "review": "Story is great and cinematograpy is fantastic"
         }
     },
     {
         "model": "mywatchlist.WatchList",
         "pk": 2,
         "fields": {
-            "watched": "No",
+            "watched": "Yes",
             "title": "Top Gun Maverick",
-            "rating": "6.9/10.0",
+            "rating": "8.4/10.0",
             "release_date": "May 27, 2022",
-            "review": "https://www.rottentomatoes.com/m/top_gun_maverick"
+            "review": "A great sequel and very amazing cinematography"
+        }
+    },
+    {
+        "model": "mywatchlist.WatchList",
+        "pk": 3,
+        "fields": {
+            "watched": "No",
+            "title": "Pengabdi Setan",
+            "rating": "-/10.0",
+            "release_date": "May 27, 2022",
+            "review": "My friend said it is very scary and really must watch"
+        }
+    },
+    {
+        "model": "mywatchlist.WatchList",
+        "pk": 4,
+        "fields": {
+            "watched": "Yes",
+            "title": "Incantation",
+            "rating": "9.0/10.0",
+            "release_date": "March 18, 2022",
+            "review": "Very interesting mockumentary and the concept of deceiving viewer is a real scare"
+        }
+    },
+    {
+        "model": "mywatchlist.WatchList",
+        "pk": 5,
+        "fields": {
+            "watched": "Yes",
+            "title": "Your Name",
+            "rating": "9.5/10.0",
+            "release_date": "December 7, 2016",
+            "review": "Really beautiful animation. Makoto shinkai is a beast"
+        }
+    },
+    {
+        "model": "mywatchlist.WatchList",
+        "pk": 6,
+        "fields": {
+            "watched": "Yes",
+            "title": "I want to your pancreas",
+            "rating": "8.0/10.0",
+            "release_date": "September 1, 2018",
+            "review": "A really well developed story, but the end is kind of dissapointing"
+        }
+    },
+    {
+        "model": "mywatchlist.WatchList",
+        "pk": 7,
+        "fields": {
+            "watched": "Yes",
+            "title": "5cm per second",
+            "rating": "9.0/10.0",
+            "release_date": "March 3, 2007",
+            "review": "I never felt heartbroken when watching a movie, up untill this one"
+        }
+    },
+    {
+        "model": "mywatchlist.WatchList",
+        "pk": 8,
+        "fields": {
+            "watched": "Yes",
+            "title": "As above as below",
+            "rating": "7.9/10.0",
+            "release_date": "August 20, 2014",
+            "review": "A very slowburn movie, felt sleepy the whole movie. The ending got a nice circularity to it"
+        }
+    },
+    {
+        "model": "mywatchlist.WatchList",
+        "pk": 9,
+        "fields": {
+            "watched": "No",
+            "title": "Hal, The Movie",
+            "rating": "9.9/10.0",
+            "release_date": "June 8, 2013",
+            "review": "What a plot twist!"
+        }
+    },
+    {
+        "model": "mywatchlist.WatchList",
+        "pk": 10,
+        "fields": {
+            "watched": "No",
+            "title": "Morbius",
+            "rating": "-/10.0",
+            "release_date": "March 30, 2022",
+            "review": "Some say its good. Some say its a bit cringe"
         }
     }
 ]

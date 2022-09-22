@@ -1,0 +1,24 @@
+[
+    {
+        "model": "mywatchlist.WatchList",
+        "pk": 1,
+        "fields": {
+            "watched": "No",
+            "title": "Top Gun",
+            "rating": "6.9/10.0",
+            "release_date": "May 16, 1986",
+            "review": "https://www.rottentomatoes.com/m/top_gun"
+        }
+    },
+    {
+        "model": "mywatchlist.WatchList",
+        "pk": 2,
+        "fields": {
+            "watched": "No",
+            "title": "Top Gun Maverick",
+            "rating": "6.9/10.0",
+            "release_date": "May 27, 2022",
+            "review": "https://www.rottentomatoes.com/m/top_gun_maverick"
+        }
+    }
+]

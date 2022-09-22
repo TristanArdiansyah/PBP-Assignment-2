@@ -18,3 +18,6 @@ Kita membutuhkan data delivery agar data yang ditampilkan pada website dapat sel
     10. Terakhir untuk implementasi bonus saya melakukan iterasi pada function show_mywatchlist pada views tepatnya pada variable pemanggilan data untuk menghitung seberapa banyak movie yang sudah diwatch dan total movienya, lalu saya kurangi untuk melakukan perbandingan pada if conditios. Jika pada if conditions, movie yang telah ditonton lebih banyak, message awal saya ubah.
     11. Setelah itu saya mengisi README.md dan melakukan deployment ke github
 4. Mengakses tiga URL di poin 6 menggunakan Postman, menangkap screenshot, dan menambahkannya ke dalam README.md
+![Gambar]('../../Postman/HTML.png?raw=true')
+![Gambar]('../../Postman/JSON.png?raw=true')
+![Gambar]('../../Postman/XML.png?raw=true')

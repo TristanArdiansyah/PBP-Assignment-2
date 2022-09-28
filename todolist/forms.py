@@ -1,5 +1,3 @@
-from cProfile import label
-from turtle import title
 from django import forms
 
 class TaskList(forms.Form):

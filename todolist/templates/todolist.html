@@ -1,0 +1,28 @@
+<table>
+    <tr>
+      <th>Title</th>
+      <th>Date</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Actions</th>
+      <th>Delete</th>
+    </tr>
+    {% comment %} Add the data below this line {% endcomment %}
+    {% for task in data_todolist %}
+    <tr>
+        <td>{{task.title}}</td>
+        <td>{{task.date}}</td>
+        <td>{{task.description}}</td>
+        {% if task.isFinished == False %}
+        <th>Belum Selesai</th>
+        {% else %}
+        <th>Selesai</th>
+        {% endif %}
+        <th><a href="{% url 'todolist:change-status' task.pk %}"><button>Switch</button></th>
+        <th><a href="{% url 'todolist:delete-task' task.pk %}"><button>Delete</button></th>
+    </tr>
+    {% endfor %}
+  </table>
+<button><a href="{% url 'todolist:create-task' %}">Create Task</a></button>
+<button><a href="{% url 'todolist:logout' %}">Logout</a></button>
+<h5>Sesi terakhir login: {{ last_login }}</h5>

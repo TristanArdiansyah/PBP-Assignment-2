@@ -1,5 +1,12 @@
 ## App Django: To-Do List
 http://tokotristan.herokuapp.com/todolist/
+Dummy Account:
+#1
+Username: dummyaccount
+Password: qweasd121
+#2
+Username: dummyaccount2
+Password: qweasd121
 
 1. **Apa kegunaan {% csrf_token %} pada elemen <form>? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen <form>?**
 csrf_token adalah value yang dibuat oleh server-side application untuk melindungi CSRF resource yang rentan. Value token tersebut digenerate secara random menggunakan pseudo-random number generator. Untuk sebuah request diterima oleh server, kedua token yang digenerate pada user-session dan server side harus sama. Jika kedua token tidak sama, user-session akan dihentikan dan event yang ada akan dimasukkan ke log sebagai potensi serangan csrf. 

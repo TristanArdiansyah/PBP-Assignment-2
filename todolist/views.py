@@ -25,6 +25,7 @@ def show_todolist(request):
     
     return render(request, "todolist.html",context)
 
+
 def register(request):
     form = UserCreationForm()
 
@@ -59,6 +60,7 @@ def logout_user(request):
     response.delete_cookie('last_login')
     return response
 
+@login_required(login_url='/todolist/login/')
 def create_task(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':

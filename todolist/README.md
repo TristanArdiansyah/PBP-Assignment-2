@@ -5,7 +5,7 @@ http://tokotristan.herokuapp.com/todolist/
 1. **Apa kegunaan {% csrf_token %} pada elemen form? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen form?**
 csrf_token adalah value yang dibuat oleh server-side application untuk melindungi CSRF resource yang rentan. Value token tersebut digenerate secara random menggunakan pseudo-random number generator. Untuk sebuah request diterima oleh server, kedua token yang digenerate pada user-session dan server side harus sama. Jika kedua token tidak sama, user-session akan dihentikan dan event yang ada akan dimasukkan ke log sebagai potensi serangan csrf. 
 
-2. **Apakah kita dapat membuat elemen <form> secara manual (tanpa menggunakan generator seperti {{ form.as_table }})? Jelaskan secara gambaran besar bagaimana cara membuat <form> secara manual.**
+2. **Apakah kita dapat membuat elemen form secara manual (tanpa menggunakan generator seperti {{ form.as_table }})? Jelaskan secara gambaran besar bagaimana cara membuat form secara manual.**
 Kita dapat membuat elemen form secara manual dengan menggunakan deklararasi method POST dibagian atas page HTML-nya. Lalu untuk table,label, dan inputnya dimasukan secara manual didalam page htmlnya.
 
 3. **Jelaskan proses alur data dari submisi yang dilakukan oleh pengguna melalui HTML form, penyimpanan data pada database, hingga munculnya data yang telah disimpan pada template HTML.**

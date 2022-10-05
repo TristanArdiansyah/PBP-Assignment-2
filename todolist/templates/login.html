@@ -5,41 +5,61 @@
 {% endblock meta %}
 
 {% block content %}
-
-<div class = "login">
-
-    <h1>Login</h1>
-
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
+<style>
+    body {background-color: #9acaec;}
+    h1   {color: blue;}
+    p    {color: red;}
+    </style>
+<div class="m-auto">
+    <div class="d-flex justify-content-center vh-100 align-items-center">
+        <div class="card" style="width: 26rem; height: 30rem">
+            <div class = "login">
+                <img class="card-img-top" src="https://xd.adobe.com/ideas/wp-content/uploads/2020/02/remote-usability-testing-101-getting-started.jpg" alt="Card image cap">
+                <h1 class="text-center">Login</h1>
+            
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <div class="row justify-content-center">
+                        <div class="col-auto">
+                            <table>
+                                <tr>
+                                    <td class="text-center">Username: </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center"><input type="text" name="username" placeholder="Username" class="form-control"></td>
+                                </tr>
+                                        
+                                <tr>
+                                    <td class="text-center">Password: </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center"><input type="password" name="password" placeholder="Password" class="form-control"></td>
+                                </tr>
+                                
+                                
+                            </table>
+                            <h5></h5>
+                            <div class="col-md-12 text-center"><input class="btn btn-outline-primary" type="submit" value="Login"></div>
+                            
+                        </div>
+                    </div>
                     
-            <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
-            </tr>
-        </table>
-    </form>
-
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}     
-        
-    Belum mempunyai akun? <a href="{% url 'todolist:register' %}">Buat Akun</a>
-
+                </form>
+                {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}     
+                <h5></h5>
+                <h6 class="text-center">Belum mempunyai akun? <a href="{% url 'todolist:register' %}">Buat Akun</a></h6>
+                
+                
+            
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock content %}

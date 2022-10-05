@@ -1,5 +1,17 @@
-<form action="/todolist/create-task/" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col d-flex justify-content-center">
+    <div class="card" style="width: 20rem;">
+        <img class="card-img-top" src="https://accurate.id/wp-content/uploads/2021/10/accurate.id-task-management.jpg" alt="Card image cap">
+        <div class="card-body">
+            <form action="/todolist/create-task/" method="post">
+                {% csrf_token %}
+                {{ form.as_table }}
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

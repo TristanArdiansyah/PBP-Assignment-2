@@ -1,28 +1,47 @@
-<table>
-    <tr>
-      <th>Title</th>
-      <th>Date</th>
-      <th>Description</th>
-      <th>Status</th>
-      <th>Actions</th>
-      <th>Delete</th>
-    </tr>
-    {% comment %} Add the data below this line {% endcomment %}
-    {% for task in data_todolist %}
-    <tr>
-        <td>{{task.title}}</td>
-        <td>{{task.date}}</td>
-        <td>{{task.description}}</td>
-        {% if task.isFinished == False %}
-        <th>Belum Selesai</th>
-        {% else %}
-        <th>Selesai</th>
-        {% endif %}
-        <th><a href="{% url 'todolist:change-status' task.pk %}"><button>Switch</button></th>
-        <th><a href="{% url 'todolist:delete-task' task.pk %}"><button>Delete</button></th>
-    </tr>
-    {% endfor %}
-  </table>
-<button><a href="{% url 'todolist:create-task' %}">Create Task</a></button>
-<button><a href="{% url 'todolist:logout' %}">Logout</a></button>
-<h5>Sesi terakhir login: {{ last_login }}</h5>
+{% extends 'base.html' %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg" style="background-color: #9acaec;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Your To-Do List</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'todolist:show_todolist' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'todolist:create-task' %}">Create Task</a>
+        </li>
+      </ul>
+      <li class="nav-item">
+          <button class="btn btn-light"><a href="{% url 'todolist:logout' %}">Logout</a></button>
+      </li>
+    </div>
+  </div>
+</nav>
+{% for task in data_todolist %}
+<div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{task.title}}</h5>
+          <p class="card-text">{{task.date}}</p>
+          <p class="card-text">{{task.description}}</p>
+          {% if task.isFinished == False %}
+          <p class="card-text">Belum Selesai</p>
+          {% else %}
+          <p class="card-text">Selesai</p>
+          {% endif %}
+          <a href="{% url 'todolist:change-status' task.pk %}" class="btn btn-primary">Switch Status</a>
+          <a href="{% url 'todolist:delete-task' task.pk %}" class="btn btn-danger">Delete Task</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+<button class="btn btn-outline-info"><a href="{% url 'todolist:create-task' %}">Create Task</a></button>
+<h6>Sesi terakhir login: {{ last_login }}</h6>
+{% endblock content %}

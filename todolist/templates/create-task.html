@@ -1,17 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="col d-flex justify-content-center">
-    <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="https://accurate.id/wp-content/uploads/2021/10/accurate.id-task-management.jpg" alt="Card image cap">
-        <div class="card-body">
-            <form action="/todolist/create-task/" method="post">
-                {% csrf_token %}
-                {{ form.as_table }}
-                <input type="submit" value="Submit">
-            </form>
+<style>
+    body {background-color: #9acaec;}
+    h1   {color: blue;}
+    p    {color: red;}
+</style>
+
+<div class="m-auto">
+    <div class="d-flex justify-content-center vh-100 align-items-center">
+        <div class="card" style="width: 26rem;">
+            <img class="card-img-top" src="https://accurate.id/wp-content/uploads/2021/10/accurate.id-task-management.jpg" alt="Card image cap">
+            <div class="card-body">
+                <form action="/todolist/create-task/" method="post">
+                    {% csrf_token %}
+                    <h3 class="text-center"> Create New Task </h3>
+                    <table class="table table-borderless">
+                        {{ form.as_table }}
+                    </table>
+                    <input class="btn btn-outline-primary " type="submit"  value="Submit"/>
+                </form>
+            </div>
         </div>
     </div>
 </div>
-
 {% endblock content %}

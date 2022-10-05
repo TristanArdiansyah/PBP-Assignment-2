@@ -16,9 +16,10 @@ from .forms import TaskList
 def show_todolist(request):
     
     data_todolist = Task.objects.filter(user=request.user)
+    nama = request.user
     context = {
         'data_todolist': data_todolist,
-        'nama': 'Nanda Tristan Ardiansyah',
+        'nama': nama,
         'npm' : '2106752086',
         'last_login' : request.COOKIES['last_login'],
     }

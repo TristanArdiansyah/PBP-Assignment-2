@@ -70,10 +70,10 @@ def create_task(request):
         if form.is_valid():
             # process the data in form.cleaned_data as required
 
-            inputtitle = form.cleaned_data['titleField']
-            inputdescription = form.cleaned_data['descriptionField']
+            title_input = form.cleaned_data['titleField']
+            description_input = form.cleaned_data['descriptionField']
             
-            task = Task(user=request.user,title= inputtitle ,description=inputdescription, )
+            task = Task(user=request.user,title= title_input ,description=description_input, )
             task.save()
             # ...
             # redirect to a new URL:

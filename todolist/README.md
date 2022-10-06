@@ -1,6 +1,39 @@
 ## App Django: To-Do List
 http://tokotristan.herokuapp.com/todolist/
 
+## TUGAS 5
+
+1. **Apa perbedaan dari Inline, Internal, dan External CSS? Apa saja kelebihan dan kekurangan dari masing-masing style?**
+
+    1. Inline CSS, adalah sebutan ketika pengaplikasian style dilakukan pada elemen tertentu saja. Kelebihan dari Inline CSS adalah sangat berguna ketika sedang menguji perubahan dari pengaplikasian style tertentu, solusi quick fix untuk permasalahan spesifik, dan juga http request yang lebih kecil. Kekurangan dari inline css adalah perubahan css hanya berlaku untuk satu elemen saja
+    2. Internal CSS, adalah sebutan ketika kode css internal ditempatkan di bagian head dari sebuah halaman html. Kelebihan dari Internal CSS adalah class dan ID dapat digunakan untuk seluruh internal stylesheet, dan hanya membutuhkan satu file html itu sendiri. Kekurangan dari Internal CSS adalah perubahan yang dilakukan hanya berlaku untuk 1 file html itu sendiri.
+    3. External CSS, adalah sebutan ketika semua kode rule css ditempatkan dalam file.css eksternal dari page. Kelebihan dari External CSS adalah ketika css didownload dan dipanggil akan lebih cepat karena pemanggilan hanya satu kali pada external CSS, dan perubahan bisa berlaku ke semua file yang mengaplikasikan file .css tersebut. Kekurangan dari CSS Eksternal adalah halaman tidak langsung menjadi bentuk sempurna ketika di load hingga loading css selesai.
+
+2. **Jelaskan tag HTML5 yang kamu ketahui**
+
+    1. Tag input yang merupakan fitur dari forms 2.0 pada HTML 5 mempermudah meminta input dari user
+    2. Tag header footer dan section yang merupakan elemen semantic baru yang mempermudah mendefinisikan elemen heade, footer dan section
+    3. Tag Audio dan Video yang memungkinkan page menampilkan Video dan Audio
+    4. Tag Drag and Drop yang memungkinkan user melakukan drag and drop file pada web page
+
+3. **Jelaskan tipe-tipe CSS selector yang kamu ketahui**
+    1. element - memilih semua p elements
+    2. element.class - memilih semua p elements dengan class tertentu
+    3. :default - memilih setiap default input element
+    4. :disabled - memilih setiap disabled input element
+    5. :enabled - memilih setiap enabled input element
+    6. :hover - memilih link saat mouse hover diatasnya
+
+4. **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas**
+    1. Menaruh link bootstrap dan css yang saya butuhkan pada base.html agar bootstrap dapat diterapkan pada seluruh halaman html pada templates
+    2. Mengubah login page menjadi menggunakan card agar tampilan page menjadi responsive
+    3. Mengimpelementasikan card pada register page agar tampilan register page juga responsive
+    4. Menambahkan Navbar pada laman utama todolist, dan juga mengisinya dengan link menuju create task dan juga memindahkan button logout ke navbar
+    5. Mengubah tampilan task list yang sebelumya menggunakan table menjadi card agar tampilan web menjadi responsive
+    6. Mengubah bentuk halaman page create-task menjadi cards agar tampilan lebih bagus dan responsive
+    7. Melakukan deployment dan pengecekan webpage pada mobile agar dapat memastikan tampilan webpage menyeseuaikan dengan baik
+
+## TUGAS 4
 
 1. **Apa kegunaan {% csrf_token %} pada elemen form? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen form?**
 csrf_token adalah value yang dibuat oleh server-side application untuk melindungi CSRF resource yang rentan. Value token tersebut digenerate secara random menggunakan pseudo-random number generator. Untuk sebuah request diterima oleh server, kedua token yang digenerate pada user-session dan server side harus sama. Jika kedua token tidak sama, user-session akan dihentikan dan event yang ada akan dimasukkan ke log sebagai potensi serangan csrf. 

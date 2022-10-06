@@ -33,7 +33,7 @@
 <h3></h3>
 <div class="col d-flex justify-content-center">
   <div class="row">
-      <div class="card" style="width: 26rem;">
+      <div class="card" style="width: 20rem;">
         <div class="card-body">
           <div class="d-grid gap-2">
             <h2 class = "text-center">Hi {{nama}}, here is your To-do Lists!</h2>
@@ -49,7 +49,7 @@
 {% for task in data_todolist %}
 <div class="col d-flex justify-content-center">
   <div class="row">
-        <div class="card" style="width: 26rem;">
+        <div class="card" style="width: 20rem;">
           <div class="card-body">
             <h3 class="card-title">{{task.title}}</h5>
             <h6 class="card-text">{{task.date}}</h6>
@@ -71,7 +71,7 @@
 
 <div class="col d-flex justify-content-center">
   <div class="row">
-    <div class="card" style="width: 26rem;">
+    <div class="card" style="width: 20rem;">
       <div class="card-body">
         <div class="d-grid gap-2">
           <a href="{% url 'todolist:create-task' %}" class="btn btn-primary">+</a>

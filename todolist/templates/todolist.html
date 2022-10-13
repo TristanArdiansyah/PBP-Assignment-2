@@ -8,6 +8,11 @@
   p    {color: rgb(0, 0, 0);}
   
 </style>
+
+<head>
+  
+</head>
+
 <nav class="navbar navbar-expand-lg" style="background-color: #ffffff;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Your To-Do List</a>
@@ -20,53 +25,23 @@
           <a class="nav-link active" aria-current="page" href="{% url 'todolist:show_todolist' %}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'todolist:create-task' %}">Create Task</a>
+          <a class="nav-link"  data-bs-toggle="modal" data-bs-target="#createTaskModal">Create Task</a>
         </li>
       </ul>
-      <li class="nav-item">
-        <a href="{% url 'todolist:logout' %}" class="btn btn-primary">Logout</a>
-      </li>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a href="{% url 'todolist:logout' %}" class="btn btn-outline-primary">Logout</a>
+        </li>
+        <li> </li>
+      </ul>
     </div>
   </div>
 </nav>
 
 <h3></h3>
-<div class="col d-flex justify-content-center">
-  <div class="row">
-      <div class="card" style="width: 20rem;">
-        <div class="card-body">
-          <div class="d-grid gap-2">
-            <h2 class = "text-center">Hi {{nama}}, here is your To-do Lists!</h2>
-          </div>
-        </div>
-      </div>
-    
-  </div>
-</div>
 
-<h3></h3>
 
-{% for task in data_todolist %}
-<div class="col d-flex justify-content-center">
-  <div class="row">
-        <div class="card" style="width: 20rem;">
-          <div class="card-body">
-            <h3 class="card-title">{{task.title}}</h5>
-            <h6 class="card-text">{{task.date}}</h6>
-            <p class="card-text">{{task.description}}</p>
-            {% if task.isFinished == False %}
-            <p class="card-text" style="color: red">Belum Selesai</p>
-            {% else %}
-            <p class="card-text" style="color: darkgreen;">Selesai</p>
-            {% endif %}
-            <a href="{% url 'todolist:change-status' task.pk %}" class="btn btn-primary">Switch Status</a>
-            <a href="{% url 'todolist:delete-task' task.pk %}" class="btn btn-danger">Delete Task</a>
-          </div>
-        </div>
-    </div>
-</div>
-<h5></h5>
-{% endfor %}
+<div id="tasks" ></div>
 
 
 <div class="col d-flex justify-content-center">
@@ -74,9 +49,116 @@
     <div class="card" style="width: 20rem;">
       <div class="card-body">
         <div class="d-grid gap-2">
-          <a href="{% url 'todolist:create-task' %}" class="btn btn-primary">+</a>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createTaskModal">
+            +
+          </button>
         </div>
       </div>
   </div>
 </div>
+
+<div class="modal fade" id="createTaskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="taskModalLabel">Create Task</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img class="card-img-top" src="https://accurate.id/wp-content/uploads/2021/10/accurate.id-task-management.jpg" alt="Card image cap">
+            <div class="card-body">
+                <form id="form" onsubmit="return false;">
+                    {% csrf_token %}
+                    <h3 class="text-center"> Create New Task </h3>
+                    <form method="POST" action="">
+                    <table>
+                      <tr>
+                        <td>Title:</td>
+                        <td>
+                          <input
+                          type="text"
+                          name="title"
+                          placeholder="title"
+                          id="title"
+                          class="form-control"
+                          />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Description:</td>
+                        <td>
+                          <input
+                            type="text"
+                            name="description"
+                            placeholder="description"
+                            id="description"
+                            class="form-control"
+                            />
+                        </td>
+                      </tr>
+                    </table>
+                    
+                </form>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button id="submit_btn" class="btn btn-primary" type="submit"  value="Submit" data-bs-dismiss="modal">Buat Todolist</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+async function getTodoList() {
+  return fetch("{% url 'todolist:show_json' %}").then((res) => res.json())
+}
+
+async function refreshTodoList() {
+      document.getElementById("tasks").innerHTML = ""
+      const todolists = await getTodoList()
+      let htmlString = `<div class="col d-flex justify-content-center">
+        <div class="row">
+          <div class="card" style="width: 20rem;">
+              <div class="card-body">
+                <div class="d-grid gap-2">
+                  <h2 class = "text-center">Hi {{nama}}, here is your To-do Lists!</h2>
+                </div>
+              </div>
+          </div>
+        </div>
+        </div>
+      `
+      todolists.forEach((item) => {
+        htmlString += `\n<div class="col d-flex justify-content-center">
+          <div class="row">
+            <div class="card" style="width: 20rem;">
+              <div class="card-body">
+                <h3 class="card-title">${item.fields.title}</h5>
+                  <h6 class="card-text">${item.fields.date}</h6>
+                  <p class="card-text">${item.fields.description}</p>
+                  `                  
+        htmlString+=
+        `\n 
+            </div>
+            </div>
+            </div>
+            </div>
+          ` 
+      })
+      
+              document.getElementById("tasks").innerHTML = htmlString
+            }
+            
+            function addTodoList() {
+              fetch("{% url 'todolist:add_todolist_item' %}", {
+                method: "POST",
+                body: new FormData(document.querySelector('#form'))
+              }).then(refreshTodoList)
+              return false
+            }
+  document.getElementById("submit_btn").onclick = addTodoList
+
+  refreshTodoList()
+</script>
 {% endblock content %}

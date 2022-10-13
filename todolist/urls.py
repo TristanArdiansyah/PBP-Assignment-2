@@ -11,4 +11,6 @@ urlpatterns = [
     path('create-task/', create_task, name='create-task'), 
     path('delete-task/<int:pk>/', delete_task, name='delete-task'),
     path('change-status/<int:pk>/', change_status, name='change-status'),
+    path('json/', show_json, name='show_json'),
+    path('add_todolist_item/', add_todolist_item, name='add_todolist_item'),
 ]

@@ -11,6 +11,8 @@ import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .forms import TaskList
+from django.http import HttpResponse, HttpResponseNotFound
+from django.core import serializers
 # Create your views here.
 @login_required(login_url='/todolist/login/')
 def show_todolist(request):
@@ -86,6 +88,18 @@ def create_task(request):
 
     return render(request, 'create-task.html', {'form': form})
 
+def add_todolist_item(request):
+    if request.method == 'POST':
+        title_input = request.POST.get("title")
+        description_input = request.POST.get("description")
+
+        task = Task(user=request.user,title= title_input ,description=description_input)
+        task.save()
+
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()
+
 def delete_task(request, pk):
     item = Task.objects.filter(pk=pk)
     item.delete()
@@ -99,3 +113,7 @@ def change_status(request, pk):
         thisitem.isFinished = False
     thisitem.save()
     return HttpResponseRedirect('/todolist/')
+
+def show_json(request):
+    data = Task.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
